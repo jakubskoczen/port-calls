@@ -62,7 +62,7 @@ export const getPortsCalls = async (): Promise<PortCall[]> => {
     )
     const rejected = vesselsSchedules.filter(result => result.status === 'rejected')
     if (rejected.length) {
-        throw new Error(`Unable to get schedule for vessels.`);
+        throw new Error('Unable to get schedule for vessels');
     }
 
     const portCalls: PortCall[] = vesselsSchedules.
