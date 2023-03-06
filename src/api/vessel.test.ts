@@ -1,5 +1,5 @@
 import api from './client';
-import { getPortsCalls, getVessels, getVesselSchedule, PortCall, Vessel, VesselSchedule } from './vessel';
+import { getPortsCalls, getVessels, getVesselSchedule, Vessel, VesselSchedule } from './vessel';
 
 jest.mock('./client', () => ({
     get: jest.fn(),
@@ -71,11 +71,6 @@ describe('getPortsCalls', () => {
     });
 
     test('should throw an error when unable to get schedule for vessels', async () => {
-        const mockVessels: Vessel[] = [
-            { imo: 1, name: 'Vessel1' },
-            { imo: 2, name: 'Vessel2' },
-        ];
-
         const mockError = new Error('Unable to get schedule for vessels');
         const getVesselScheduleMock = jest.fn().mockRejectedValue(mockError);
         api.get = getVesselScheduleMock;

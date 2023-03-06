@@ -12,8 +12,11 @@ node_modules
 .DS_Store
 Thumbs.db
 
-# Ignore built ts files
-dist/**/*
-
-# ignore yarn.lock
+# Package lock
 package-lock.json
+
+# Tests Coverage
+coverage
+
+# Built ts files
+dist/**/*

@@ -1,10 +1,5 @@
 import api from './client';
 
-interface Vessel {
-    imo: number;
-    name: string;
-}
-
 interface Port {
     id: string;
     name: string;
@@ -18,7 +13,12 @@ interface LogEntry {
     createdDate: Date;
 }
 
-interface VesselSchedule {
+export interface Vessel {
+    imo: number;
+    name: string;
+}
+
+export interface VesselSchedule {
     vessel: Vessel;
     portCalls: PortCall[];
 }
@@ -33,7 +33,7 @@ export interface PortCall {
     logEntries: LogEntry[];
 }
 
-const getVessels = async (): Promise<Vessel[] | null> => {
+export const getVessels = async (): Promise<Vessel[] | null> => {
     try {
         const { data } = await api.get<Vessel[]>(`/vessels`)
         return data
@@ -42,7 +42,7 @@ const getVessels = async (): Promise<Vessel[] | null> => {
     }
 }
 
-const getVesselSchedule = async (vesselIMO: number): Promise<VesselSchedule | null> => {
+export const getVesselSchedule = async (vesselIMO: number): Promise<VesselSchedule | null> => {
     try {
         const { data } = await api.get<VesselSchedule>(`/schedule/${vesselIMO}`)
         return data
