@@ -11,7 +11,7 @@ Port Calls is a package that import vessel schedules from an external data sourc
 To install the package, run the following command:
 
 ```bash
-$ npm install
+npm install
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ $ npm install
 To use the package, run the following command:
 
 ```bash
-$ npm start
+npm start
 ```
 
 This will export the environment variables from the `.env` file and run the `stats.ts` file using `ts-node`.
